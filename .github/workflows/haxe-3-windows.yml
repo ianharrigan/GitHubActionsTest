@@ -16,5 +16,5 @@ jobs:
 
     - name: Build app
       run: |
-        haxelib install js.hxml
+        #haxelib install js.hxml
         haxe js.hxml

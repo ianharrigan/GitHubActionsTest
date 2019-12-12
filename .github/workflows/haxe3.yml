@@ -30,10 +30,10 @@ jobs:
         tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
-        echo ::add-path:: ~/haxe
-        mkdir ~/haxelib && haxelib setup ~/haxelib
+        echo "::add-path::~/haxe"
+        mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
         echo haxe version:
-        haxe --version
+        ~/haxe/haxe --version
 
     - name: Build app
       run: |

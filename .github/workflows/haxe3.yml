@@ -9,6 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Make haxe executable
+      run: |
+        chmod 777 ./tools/haxe4_linux/haxe
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script

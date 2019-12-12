@@ -20,6 +20,7 @@ jobs:
         echo %PATH%
         echo $HAXE_STD_PATH
         Write-Host "PATH-- " $PATH 
+        $Env:Path
         haxelib install js.html --always
         haxe js.hxml
         node bin/js/main.js

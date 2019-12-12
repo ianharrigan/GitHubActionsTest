@@ -2,6 +2,6 @@ package;
 
 class Main {
     public static function main() {
-        
+        s
     }
 }

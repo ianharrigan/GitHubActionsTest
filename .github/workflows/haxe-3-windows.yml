@@ -25,9 +25,9 @@ jobs:
         pwd
         neko -version
         pwd
-        Write-Host "-----------------------------------"
-        haxelib config
-        Write-Host "-----------------------------------"
+        Write-Host "11-----------------------------------"
+        d:\haxe\haxelib config
+        Write-Host "11-----------------------------------"
         dir d:\haxe
         d:\haxe\haxelib install js.html --always
         haxe js.hxml

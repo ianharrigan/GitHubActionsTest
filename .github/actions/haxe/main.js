@@ -41,7 +41,7 @@ try {
         fs.mkdirSync(haxelibLocation);
         child_process.execSync(installLocation + "/haxelib setup " + haxelibLocation, {stdio: 'inherit'});
     } else if (platform == "win64") {
-        child_process.execSync("dir" + haxelibLocation, {stdio: 'inherit'});
+        child_process.execSync("dir", {stdio: 'inherit'});
         child_process.execSync('powershell -file download-file-windows.ps1 -url ' + archiveUrl + ' -output ' + filename, {stdio: 'inherit'});
     }
 

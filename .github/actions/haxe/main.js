@@ -6,19 +6,21 @@ const child_process = require('child_process');
 try {
     var haxeVersion = core.getInput('haxe-version');
     var platform = core.getInput('platform');
+    if (platform == null || platform.length == 0) {
+        if (process.platform.startsWith("linux")) {
+            platform = "linux64"
+        } else if (process.platform.startsWith("darwin")) {
+            platform = "osx"
+        } else if (process.platform.startsWith("win")) {
+            platform = "win64"
+        }
+    }
 
-console.log("------------------------------------------> " + core.getInput("runs-on"));
-
-    var platformAndArch = process.platform + process.arch;
-    console.log("------------------------------------------> platformAndArch: " + platformAndArch);
     var installLocation = "/usr/local/bin/haxe";
     var haxelibLocation = "/usr/local/bin/haxe/haxelibs";
 
     console.log("haxeVersion: " + haxeVersion);
     console.log("platform: " + platform);
-    if (platform == null) {
-        
-    }
 
     if (platform == "linux64") {
         child_process.execSync('sudo add-apt-repository ppa:haxe/snapshots -y', {stdio: 'inherit'});

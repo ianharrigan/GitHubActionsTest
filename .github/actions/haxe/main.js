@@ -51,6 +51,12 @@ try {
         fs.mkdirSync(installLocation);
         child_process.execSync('powershell ' + __dirname + '/unzip-file-windows.ps1 -file ' + filename + ' -output ' + installLocation, {stdio: 'inherit'});
         fs.mkdirSync(haxelibLocation);
+        
+        var nekoPath = __dirname + "\\neko-2.3.0-win64";
+        child_process.execSync("echo ::add-path::" + nekoPath, {stdio: 'inherit'});
+        child_process.execSync("echo ::set-env name=NEKO_INSTPATH::" + nekoPath, {stdio: 'inherit'});
+        process.env['NEKO_INSTPATH'] = nekoPath;
+
         child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
         child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
     }

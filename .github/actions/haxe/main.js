@@ -14,6 +14,8 @@ try {
         } else if (process.platform.startsWith("win")) {
             platform = "win64"
         }
+
+        console.log("platform guessed as: " + platform);
     }
 
     var installLocation = "/usr/local/bin/haxe";

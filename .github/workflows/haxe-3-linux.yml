@@ -1,4 +1,4 @@
-name: Haxe 4 (Linux)
+name: Haxe 3 (Linux)
 
 on: [push]
 
@@ -12,7 +12,7 @@ jobs:
     - uses: ./.github/actions/haxe
       with:
         platform: linux64
-        haxe-version: 4.0.3
+        haxe-version: 3.4.4
 
     - name: Build app
       run: |

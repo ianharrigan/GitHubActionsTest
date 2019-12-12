@@ -1,6 +1,6 @@
 name: Haxe (all versions, all platforms, all targets)
 
-on: [push]
+on: [push, repository_dispatch]
 
 jobs:
   build:

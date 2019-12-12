@@ -30,7 +30,7 @@ try {
         console.log("Expanding " + filename);
         fs.mkdirSync("/opt/haxe");
         //child_process.execSync("tar -C /opt/haxe -zxvf " + filename + " --strip 1");
-        child_process.execSync("tar" ["-C", "/opt/haxe", "-zxvf", filename, "--strip", "1"]);
+        child_process.execSync("tar", ["-C", "/opt/haxe", "-zxvf", filename, "--strip", "1"]);
         child_process.execSync("chmod 777 /opt/haxe/haxe");
         child_process.execSync("chmod 777 /opt/haxe/haxelib");
         fs.mkdirSync("/opt/haxelib");

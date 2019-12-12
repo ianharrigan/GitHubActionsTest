@@ -23,8 +23,8 @@ try {
     } else if (platform == "osx") {
         child_process.execSync('brew install neko --HEAD', {stdio: 'inherit'});
     } else if (platform == "win64") {
-        installLocation = "C:\\haxe";
-        haxelibLocation = "C:\\haxe\\haxelibs";
+        installLocation = "D:\\haxe";
+        haxelibLocation = "D:\\haxe\\haxelibs";
     }
 
     var filename = "haxe-" + haxeVersion + "-" + platform;

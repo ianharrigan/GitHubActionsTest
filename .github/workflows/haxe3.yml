@@ -30,15 +30,11 @@ jobs:
         tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
-        #export PATH=$PATH:~/haxe
-        #export HAXE_STD_PATH=~/haxe/std
         mkdir ~/haxelib && haxelib setup ~/haxelib
         echo haxe version:
         haxe --version
 
     - name: Build app
       run: |
-        #export PATH=$PATH:~/haxe
-        #export HAXE_STD_PATH=~/haxe/std
         haxe --version
         haxe js.hxml

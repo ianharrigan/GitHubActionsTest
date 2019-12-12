@@ -27,7 +27,7 @@ jobs:
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
         export PATH=$PATH:~/haxe
-        export HAXE_STD_PATH=$PATH:~/haxe/std
+        export HAXE_STD_PATH=~/haxe/std
         mkdir ~/haxelib && haxelib setup ~/haxelib
         echo haxe version:
         haxe --version

@@ -4,6 +4,7 @@ on: [push]
 
 env:
   HAXE_STD_PATH: /opt/haxe/std
+  PATH: $PATH:/opt/haxe
 
 jobs:
   build:
@@ -31,7 +32,7 @@ jobs:
         mkdir /opt/haxelib && /opt/haxe/haxelib setup /opt/haxelib
         echo haxe version: $(/opt/haxe/haxe --version)
         echo setting haxe env vars
-        echo ::add-path::/opt/haxe
+        #echo ::add-path::/opt/haxe
         #echo ::set-env name=HAXE_STD_PATH::/opt/haxe/std
 
     - name: Build app

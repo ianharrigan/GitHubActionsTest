@@ -2,6 +2,6 @@
 
 -lib haxe-strings
 
--js bin/main.js
+-js bin/js/main.js
 
 -main Main

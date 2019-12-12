@@ -22,6 +22,9 @@ try {
     child_process.execSync("chmod 777 /opt/haxe/haxelib");
     fs.mkdirSync("/opt/haxelib");
     child_process.execSync("/opt/haxe/haxelib setup /opt/haxelib");
+
+    process.env['PATH'] = process.env['PATH'] + ":/opt/haxe";
+    process.env['HAXE_STD_PATH'] = "/opt/haxe/std";
 } catch (error) {
     core.setFailed(error.message);
 }

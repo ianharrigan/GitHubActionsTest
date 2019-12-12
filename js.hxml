@@ -1,6 +1,6 @@
 -cp src
 
--lib hxColorToolkit
+-lib haxe-strings
 
 -js bin/main.js
 

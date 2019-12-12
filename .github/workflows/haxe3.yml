@@ -33,4 +33,5 @@ jobs:
 
     - name: Build app
       run: |
+        haxe --version
         haxe js.hxml

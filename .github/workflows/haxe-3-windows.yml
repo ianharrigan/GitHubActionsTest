@@ -18,6 +18,6 @@ jobs:
       run: |
         echo $PATH
         echo $HAXE_STD_PATH
-        haxelib config
+        haxelib install js.html --always
         haxe js.hxml
         node bin/js/main.js

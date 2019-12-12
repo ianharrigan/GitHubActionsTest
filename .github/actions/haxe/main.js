@@ -55,6 +55,7 @@ try {
     }
 
     child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});
+    child_process.execSync("echo ::set-env name=HAXEPATH::" + installLocation, {stdio: 'inherit'});
     child_process.execSync("echo ::set-env name=HAXE_STD_PATH::" + installLocation + "/std", {stdio: 'inherit'});
 } catch (error) {
     core.setFailed(error.message);

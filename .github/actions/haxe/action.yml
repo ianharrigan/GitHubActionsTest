@@ -7,6 +7,10 @@ inputs:
     description: 'Which version of haxe'
     required: false
     default: 'latest'
+  platform:
+    description: 'Which platform'
+    required: false
+    default: 'linux64'
 
 runs:
   using: 'node12'

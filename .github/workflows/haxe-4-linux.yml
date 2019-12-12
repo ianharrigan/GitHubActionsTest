@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
     - uses: ./.github/actions/haxe
+    - uses: actions/checkout@v1
 
     - name: Install neko
       run: |

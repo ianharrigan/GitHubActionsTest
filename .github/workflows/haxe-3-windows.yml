@@ -17,7 +17,9 @@ jobs:
     - name: Build app
       run: |
         echo $PATH
+        echo %PATH%
         echo $HAXE_STD_PATH
+        Write-Host "PATH-- " $PATH 
         haxelib install js.html --always
         haxe js.hxml
         node bin/js/main.js

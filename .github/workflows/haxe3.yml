@@ -15,7 +15,7 @@ jobs:
         mkdir haxe
         echo -------------------------------------------------------
         ls
-        tar -C haxe -zxvf haxe-4.0.3-linux64.tar.gz
+        tar -C haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         echo -------------------------------------------------------
         ls
         cd haxe

@@ -11,7 +11,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Make haxe executable
       run: |
-        chmod 777 ./tools/haxe4_linux/haxe
+        wget https://haxe.org/download/file/4.0.3/haxe-4.0.3-linux64.tar.gz/
+        unzip haxe-4.0.3-linux64.tar.gz
+        ls
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script

@@ -5,12 +5,10 @@ description: Install & setup haxe for github actions
 inputs:
   haxe-version:
     description: 'Which version of haxe'
-    required: false
-    default: 'latest'
+    required: true
   platform:
     description: 'Which platform'
-    required: false
-    default: 'linux64'
+    required: true
 
 runs:
   using: 'node12'

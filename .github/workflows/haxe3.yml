@@ -2,9 +2,9 @@ name: Test Haxe 3
 
 on: [push]
 
-env:
+#env:
   #PATH: $(echo "::add-path::~/haxe")
-  HAXE_STD_PATH: ~/haxe/std
+  #HAXE_STD_PATH: ~/haxe/std
 
 jobs:
   build:
@@ -21,7 +21,6 @@ jobs:
         sudo apt install neko -y
         echo neko version:
         neko -version
-        pwd
 
     - name: Install haxe
       run: |
@@ -31,7 +30,7 @@ jobs:
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
         #echo "::add-path::~/haxe"
-        #echo "::set-env name=HAXE_STD_PATH::~/haxe/std"
+        echo ::set-env name=HAXE_STD_PATH::~/haxe/std
         export PATH=$PATH:~/haxe
         mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
         echo haxe version:
@@ -40,6 +39,6 @@ jobs:
     - name: Build app
       run: |
         export PATH=$PATH:~/haxe
-        export HAXE_STD_PATH=~/haxe/std
+        #export HAXE_STD_PATH=~/haxe/std
         haxe --version
         haxe js.hxml

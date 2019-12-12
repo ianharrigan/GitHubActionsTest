@@ -2,6 +2,10 @@ name: Test Haxe 3
 
 on: [push]
 
+env:
+  PATH: "$PATH:~/haxe"
+  HAXE_STD_PATH: "~/haxe/std"
+
 jobs:
   build:
 

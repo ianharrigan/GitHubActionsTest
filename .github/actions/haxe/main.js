@@ -10,12 +10,15 @@ try {
 console.log("------------------------------------------> " + core.getInput("runs-on"));
 
     var platformAndArch = process.platform + process.arch;
-    console.log("------------------------------------------> platformAndArch" + platformAndArch);
+    console.log("------------------------------------------> platformAndArch: " + platformAndArch);
     var installLocation = "/usr/local/bin/haxe";
     var haxelibLocation = "/usr/local/bin/haxe/haxelibs";
 
     console.log("haxeVersion: " + haxeVersion);
     console.log("platform: " + platform);
+    if (platform == null) {
+        
+    }
 
     if (platform == "linux64") {
         child_process.execSync('sudo add-apt-repository ppa:haxe/snapshots -y', {stdio: 'inherit'});

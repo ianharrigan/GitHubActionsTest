@@ -7,6 +7,9 @@ try {
     var haxeVersion = core.getInput('haxe-version');
     var platform = core.getInput('platform');
 
+    var installLocation = "/usr/local/bin/haxe";
+    var haxelibLocation = "~/haxelib";
+
     console.log("haxeVersion: " + haxeVersion);
     console.log("platform: " + platform);
 
@@ -21,15 +24,15 @@ try {
     console.log("Downloading haxe from: " + archiveUrl);
 
     child_process.execSync('wget ' + archiveUrl, {stdio: 'inherit'});
-    fs.mkdirSync("/opt/haxe");
-    child_process.execSync('tar -C /opt/haxe -zxvf ' + filename + ' --strip 1', {stdio: 'inherit'});
-    child_process.execSync("chmod 777 /opt/haxe/haxe", {stdio: 'inherit'});
-    child_process.execSync("chmod 777 /opt/haxe/haxelib", {stdio: 'inherit'});
-    fs.mkdirSync("/opt/haxelib");
-    child_process.execSync("/opt/haxe/haxelib setup /opt/haxelib", {stdio: 'inherit'});
+    fs.mkdirSync(installLocation);
+    child_process.execSync('tar -C ' + installLocation + ' -zxvf ' + filename + ' --strip 1', {stdio: 'inherit'});
+    child_process.execSync("chmod 777 " + installLocation + "/haxe", {stdio: 'inherit'});
+    child_process.execSync("chmod 777 " + installLocation + "/haxelib", {stdio: 'inherit'});
+    fs.mkdirSync(haxelibLocation);
+    child_process.execSync(installLocation + "/haxelib setup " + haxelibLocation, {stdio: 'inherit'});
 
-    child_process.execSync("echo ::add-path::/opt/haxe", {stdio: 'inherit'});
-    child_process.execSync("echo ::set-env name=HAXE_STD_PATH::/opt/haxe/std", {stdio: 'inherit'});
+    child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});
+    child_process.execSync("echo ::set-env name=HAXE_STD_PATH::" + installLocation + "/std", {stdio: 'inherit'});
 } catch (error) {
     core.setFailed(error.message);
 }

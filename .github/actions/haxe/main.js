@@ -9,6 +9,8 @@ try {
 
 console.log("------------------------------------------> " + core.getInput("runs-on"));
 
+    var platformAndArch = process.platform + process.arch;
+    console.log("------------------------------------------> platformAndArch" + platformAndArch);
     var installLocation = "/usr/local/bin/haxe";
     var haxelibLocation = "/usr/local/bin/haxe/haxelibs";
 

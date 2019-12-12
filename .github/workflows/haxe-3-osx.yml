@@ -1,0 +1,20 @@
+name: Haxe 3 (OSX)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./.github/actions/haxe
+      with:
+        platform: osx
+        haxe-version: 3.4.4
+
+    - name: Build app
+      run: |
+        haxelib install js.hxml
+        haxe js.hxml

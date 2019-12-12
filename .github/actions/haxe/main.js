@@ -58,6 +58,8 @@ try {
         child_process.execSync("echo ::set-env name=NEKO_INSTPATH::" + nekoPath, {stdio: 'inherit'});
         //process.env['NEKO_INSTPATH'] = nekoPath;
 
+        fs.writeFileSync(process.env["USERPROFILE"] + "\\.haxelib", haxelibLocation);
+
         //child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
         //child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
 //        child_process.execSync("echo ::set-env name=HAXEPATH::" + installLocation, {stdio: 'inherit'});

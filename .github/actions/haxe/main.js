@@ -7,6 +7,9 @@ try {
     var haxeVersion = core.getInput('haxe-version');
     var platform = core.getInput('platform');
 
+    console.log("haxeVersion: " + haxeVersion);
+    console.log("platform: " + platform);
+
     child_process.execSync('sudo add-apt-repository ppa:haxe/snapshots -y', {stdio: 'inherit'});
     child_process.execSync('sudo apt-get update', {stdio: 'inherit'});
     child_process.execSync('sudo apt install neko -y', {stdio: 'inherit'});

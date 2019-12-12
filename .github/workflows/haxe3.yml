@@ -2,6 +2,9 @@ name: Test Haxe 3
 
 on: [push]
 
+env:
+  HAXE_STD_PATH: /opt/haxe/std
+
 jobs:
   build:
 
@@ -29,7 +32,7 @@ jobs:
         echo haxe version: $(/opt/haxe/haxe --version)
         echo setting haxe env vars
         echo ::add-path::/opt/haxe
-        echo ::set-env name=HAXE_STD_PATH::/opt/haxe/std
+        #echo ::set-env name=HAXE_STD_PATH::/opt/haxe/std
 
     - name: Build app
       run: |

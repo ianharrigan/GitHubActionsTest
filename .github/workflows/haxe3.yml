@@ -7,10 +7,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      PATH: "$PATH:~/haxe"
-      HAXE_STD_PATH: "~/haxe/std"
-
     steps:
     - uses: actions/checkout@v1
 

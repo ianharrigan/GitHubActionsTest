@@ -7,6 +7,8 @@ try {
     var haxeVersion = core.getInput('haxe-version');
     var platform = core.getInput('platform');
 
+console.log("------------------------------------------> " + core.getInput("runs-on"));
+
     var installLocation = "/usr/local/bin/haxe";
     var haxelibLocation = "/usr/local/bin/haxe/haxelibs";
 

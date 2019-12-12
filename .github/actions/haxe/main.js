@@ -8,7 +8,7 @@ try {
     var platform = core.getInput('platform');
 
     var installLocation = "/usr/local/bin/haxe";
-    var haxelibLocation = "/usr/local/lib/haxe/haxelib";
+    var haxelibLocation = "/usr/local/bin/haxe/haxelibs";
 
     console.log("haxeVersion: " + haxeVersion);
     console.log("platform: " + platform);

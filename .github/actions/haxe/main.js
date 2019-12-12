@@ -8,7 +8,7 @@ try {
     var platform = core.getInput('platform');
 
     var filename = "haxe-4.0.3-linux64.tar.gz";
-    var archiveUrl = "https://github.com/HaxeFoundation/haxe/releases/download/4.0.3/" + filename;
+    var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/4.0.3/" + filename;
     console.log("downloading haxe from: " + archiveUrl);
 
     const file = fs.createWriteStream(filename);

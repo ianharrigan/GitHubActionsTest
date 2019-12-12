@@ -21,6 +21,12 @@ jobs:
         cd haxe
         echo -------------------------------------------------------
         ls
+        cd ..
+        chmod 777 ./haxe/haxe
+        chmod 777 ./haxe/haxelib
+        echo -------------------------------------------------------
+        pwd
+        
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script

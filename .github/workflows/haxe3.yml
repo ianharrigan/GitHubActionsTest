@@ -19,8 +19,7 @@ jobs:
         sudo add-apt-repository ppa:haxe/snapshots -y
         sudo apt-get update
         sudo apt install neko -y
-        echo neko version:
-        neko -version
+        echo neko version: $(neko -version)
 
     - name: Install haxe
       run: |
@@ -29,15 +28,14 @@ jobs:
         tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
-        echo ::add-path::~/haxe
-        echo ::set-env name=HAXE_STD_PATH::~/haxe/std
         export PATH=$PATH:~/haxe
         mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
         echo haxe version: $(~/haxe/haxe --version)
+        echo setting haxe env vars
+        echo ::add-path::~/haxe
+        echo ::set-env name=HAXE_STD_PATH::~/haxe/std
 
     - name: Build app
       run: |
-        #export PATH=$PATH:~/haxe
-        #export HAXE_STD_PATH=~/haxe/std
         haxe --version
         haxe js.hxml

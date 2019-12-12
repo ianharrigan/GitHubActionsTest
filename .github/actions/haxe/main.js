@@ -27,7 +27,13 @@ try {
         haxelibLocation = "C:\\haxe\\haxelibs";
     }
 
-    var filename = "haxe-" + haxeVersion + "-" + platform + ".tar.gz";
+    var filename = "haxe-" + haxeVersion + "-" + platform;
+    if (platform == "linux64" || platform == "osx") {
+        filename += ".tar.gz";
+    } else if (platform == "win64") {
+        filename += ".zip";
+    }
+
     var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/" + haxeVersion + "/" + filename;
 
     if (platform == "linux64" || platform == "osx") {

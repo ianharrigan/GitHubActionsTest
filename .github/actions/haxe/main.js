@@ -18,13 +18,13 @@ try {
     child_process.execSync('wget https://github.com/HaxeFoundation/haxe/releases/download/4.0.3/haxe-4.0.3-linux64.tar.gz', {stdio: 'inherit'});
     fs.mkdirSync("/opt/haxe");
     child_process.execSync('tar -C /opt/haxe -zxvf ' + filename + ' --strip 1', {stdio: 'inherit'});
-    child_process.execSync("chmod 777 /opt/haxe/haxe");
-    child_process.execSync("chmod 777 /opt/haxe/haxelib");
+    child_process.execSync("chmod 777 /opt/haxe/haxe", {stdio: 'inherit'});
+    child_process.execSync("chmod 777 /opt/haxe/haxelib", {stdio: 'inherit'});
     fs.mkdirSync("/opt/haxelib");
-    child_process.execSync("/opt/haxe/haxelib setup /opt/haxelib");
+    child_process.execSync("/opt/haxe/haxelib setup /opt/haxelib", {stdio: 'inherit'});
 
-    process.env['PATH'] = process.env['PATH'] + ":/opt/haxe";
-    process.env['HAXE_STD_PATH'] = "/opt/haxe/std";
+    child_process.execSync("echo ::add-path::/opt/haxe", {stdio: 'inherit'});
+    child_process.execSync("echo ::set-env name=HAXE_STD_PATH::/opt/haxe/std", {stdio: 'inherit'});
 } catch (error) {
     core.setFailed(error.message);
 }

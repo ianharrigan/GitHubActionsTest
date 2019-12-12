@@ -7,6 +7,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      PATH: $PATH:~/haxe
+      HAXE_STD_PATH: ~/haxe/std
+
     steps:
     - uses: actions/checkout@v1
 
@@ -26,15 +30,15 @@ jobs:
         tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
-        export PATH=$PATH:~/haxe
-        export HAXE_STD_PATH=~/haxe/std
+        #export PATH=$PATH:~/haxe
+        #export HAXE_STD_PATH=~/haxe/std
         mkdir ~/haxelib && haxelib setup ~/haxelib
         echo haxe version:
         haxe --version
-        pwd
 
     - name: Build app
       run: |
-        pwd
-        ~/haxe/haxe --version
-        ~/haxe/haxe js.hxml
+        #export PATH=$PATH:~/haxe
+        #export HAXE_STD_PATH=~/haxe/std
+        haxe --version
+        haxe js.hxml

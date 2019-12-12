@@ -22,6 +22,6 @@ jobs:
         Write-Host "PATH-- " $PATH 
         $Env:Path
         dir d:\haxe
-        haxelib install js.html --always
+        d:\haxe\haxelib install js.html --always
         haxe js.hxml
         node bin/js/main.js

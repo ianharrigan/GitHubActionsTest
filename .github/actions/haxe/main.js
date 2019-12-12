@@ -10,9 +10,11 @@ try {
     console.log("haxeVersion: " + haxeVersion);
     console.log("platform: " + platform);
 
-    child_process.execSync('sudo add-apt-repository ppa:haxe/snapshots -y', {stdio: 'inherit'});
-    child_process.execSync('sudo apt-get update', {stdio: 'inherit'});
-    child_process.execSync('sudo apt install neko -y', {stdio: 'inherit'});
+    if (platform == "linux64") {
+        child_process.execSync('sudo add-apt-repository ppa:haxe/snapshots -y', {stdio: 'inherit'});
+        child_process.execSync('sudo apt-get update', {stdio: 'inherit'});
+        child_process.execSync('sudo apt install neko -y', {stdio: 'inherit'});
+    }
 
     var filename = "haxe-" + haxeVersion + "-" + platform + ".tar.gz";
     var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/" + haxeVersion + "/" + filename;

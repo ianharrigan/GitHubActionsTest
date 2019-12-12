@@ -1,5 +1,7 @@
 -cp src
 
+-lib hxColorToolkit
+
 -js bin/main.js
 
 -main Main

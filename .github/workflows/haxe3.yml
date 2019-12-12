@@ -2,8 +2,8 @@ name: Test Haxe 3
 
 on: [push]
 
-#env:
-  #PATH: $($PATH:~/haxe)
+env:
+  PATH: $(echo "::add-path::~/haxe")
   #HAXE_STD_PATH: ~/haxe/std
 
 jobs:
@@ -30,8 +30,8 @@ jobs:
         tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
-        echo "::add-path::~/haxe"
-        echo "::set-env name=HAXE_STD_PATH::~/haxe/std"
+        #echo "::add-path::~/haxe"
+        #echo "::set-env name=HAXE_STD_PATH::~/haxe/std"
         mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
         echo haxe version:
         ~/haxe/haxe --version

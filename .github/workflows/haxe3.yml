@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Make haxe executable
+    - name: Install haxe
       run: |
         wget https://github.com/HaxeFoundation/haxe/releases/download/4.0.3/haxe-4.0.3-linux64.tar.gz
         mkdir ~/haxe
@@ -24,10 +24,11 @@ jobs:
         cd ..
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
+        export PATH=$PATH:~/haxe
+        export HAXE_STD_PATH=$PATH:~/haxe/std
         mkdir ~/haxelib && haxelib setup ~/haxelib
         echo -------------------------------------------------------
         pwd
-        export PATH=$PATH:~/haxe
         echo -------------------------------------------------------
         haxe --version
 

@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: ./.github/actions/haxe
+    - uses: ianharrigan/GitHubActionsTest/actions/haxe
       with:
         platform: win64
         haxe-version: 4.0.3

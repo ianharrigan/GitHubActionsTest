@@ -51,6 +51,7 @@ try {
         fs.mkdirSync(installLocation);
         child_process.execSync('powershell ' + __dirname + '/unzip-file-windows.ps1 -file ' + filename + ' -output ' + installLocation, {stdio: 'inherit'});
         fs.mkdirSync(haxelibLocation);
+        child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
         child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
     }
 

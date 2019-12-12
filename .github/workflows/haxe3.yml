@@ -12,21 +12,25 @@ jobs:
     - name: Make haxe executable
       run: |
         wget https://github.com/HaxeFoundation/haxe/releases/download/4.0.3/haxe-4.0.3-linux64.tar.gz
-        mkdir haxe
+        mkdir ~/haxe
         echo -------------------------------------------------------
         ls
-        tar -C haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
+        tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
         echo -------------------------------------------------------
         ls
-        cd haxe
+        cd ~/haxe
         echo -------------------------------------------------------
         ls
         cd ..
-        chmod 777 ./haxe/haxe
-        chmod 777 ./haxe/haxelib
+        chmod 777 ~/haxe/haxe
+        chmod 777 ~/haxe/haxelib
+        mkdir ~/haxelib && haxelib setup ~/haxelib
         echo -------------------------------------------------------
         pwd
-        
+        export PATH=$PATH:~/haxe
+        echo -------------------------------------------------------
+        haxe --version
+
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script

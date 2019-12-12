@@ -1,0 +1,7 @@
+-cp src
+
+-lib haxe-strings
+
+-cpp bin/cpp
+
+-main Main

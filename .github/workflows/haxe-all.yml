@@ -22,3 +22,8 @@ jobs:
 #      run: |
 #        haxelib install js.hxml --always
 #        haxe js.hxml
+
+    - name: Build app (cpp)
+      run: |
+        haxelib install cpp.hxml --always
+        haxe cpp.hxml

@@ -17,6 +17,9 @@ try {
         child_process.execSync('sudo add-apt-repository ppa:haxe/snapshots -y', {stdio: 'inherit'});
         child_process.execSync('sudo apt-get update', {stdio: 'inherit'});
         child_process.execSync('sudo apt install neko -y', {stdio: 'inherit'});
+
+        installLocation = "/opt/haxe";
+        haxelibLocation = "/opt/haxe/haxelibs";
     } else if (platform == "osx") {
         child_process.execSync('brew install neko --HEAD', {stdio: 'inherit'});
     }

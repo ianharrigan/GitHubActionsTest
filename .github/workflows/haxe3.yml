@@ -40,5 +40,6 @@ jobs:
     - name: Build app
       run: |
         export PATH=$PATH:~/haxe
+        export HAXE_STD_PATH=~/haxe/std
         haxe --version
         haxe js.hxml

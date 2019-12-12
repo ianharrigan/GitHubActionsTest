@@ -1,6 +1,6 @@
 -cp src
 
--lib haxe-strings
+#-lib haxe-strings
 
 -js bin/js/main.js
 

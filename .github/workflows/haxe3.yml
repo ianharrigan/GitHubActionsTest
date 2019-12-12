@@ -17,6 +17,7 @@ jobs:
         sudo apt install neko -y
         echo neko version:
         neko -version
+        pwd
 
     - name: Install haxe
       run: |
@@ -30,8 +31,10 @@ jobs:
         mkdir ~/haxelib && haxelib setup ~/haxelib
         echo haxe version:
         haxe --version
+        pwd
 
     - name: Build app
       run: |
+        pwd
         haxe --version
         haxe js.hxml

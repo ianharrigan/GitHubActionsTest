@@ -1,0 +1,13 @@
+name: Install haxe
+author: Ian Harrigan
+description: Install & setup haxe for github actions
+
+inputs:
+  haxe-version:
+    description: 'Which version of haxe'
+    required: false
+    default: 'latest'
+
+runs: |
+  echo THIS IS IN AN ACTION
+

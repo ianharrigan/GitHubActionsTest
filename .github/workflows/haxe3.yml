@@ -33,8 +33,7 @@ jobs:
         echo ::set-env name=HAXE_STD_PATH::~/haxe/std
         export PATH=$PATH:~/haxe
         mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
-        echo haxe version:
-        ~/haxe/haxe --version
+        echo haxe version: $(~/haxe/haxe --version)
 
     - name: Build app
       run: |

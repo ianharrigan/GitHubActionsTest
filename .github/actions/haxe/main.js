@@ -47,23 +47,17 @@ try {
         fs.mkdirSync(haxelibLocation);
         child_process.execSync(installLocation + "/haxelib setup " + haxelibLocation, {stdio: 'inherit'});
     } else if (platform == "win64") {
-        console.log("---------------------------------------> " + process.env["USERPROFILE"]);
         child_process.execSync('powershell ' + __dirname + '/download-file-windows.ps1 -url ' + archiveUrl + ' -output ' + filename, {stdio: 'inherit'});
         fs.mkdirSync(installLocation);
         child_process.execSync('powershell ' + __dirname + '/unzip-file-windows.ps1 -file ' + filename + ' -output ' + installLocation, {stdio: 'inherit'});
         fs.mkdirSync(haxelibLocation);
         
-        var nekoPath = __dirname + "\\neko-2.3.0-win64";
+        var nekoPath = __dirname + "\\neko-2.3.0-win";
         child_process.execSync("echo ::add-path::" + nekoPath, {stdio: 'inherit'});
         child_process.execSync("echo ::set-env name=NEKO_INSTPATH::" + nekoPath, {stdio: 'inherit'});
-        //process.env['NEKO_INSTPATH'] = nekoPath;
+        process.env['NEKO_INSTPATH'] = nekoPath;
 
         fs.writeFileSync(process.env["USERPROFILE"] + "\\.haxelib", haxelibLocation);
-
-        //child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
-        //child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
-//        child_process.execSync("echo ::set-env name=HAXEPATH::" + installLocation, {stdio: 'inherit'});
-console.log("---------------------------------------> " + process.env["PATH"]);
     }
     
     child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});

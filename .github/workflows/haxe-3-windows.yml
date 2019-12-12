@@ -16,19 +16,5 @@ jobs:
 
     - name: Build app
       run: |
-        echo $PATH
-        echo %PATH%
-        echo $HAXE_STD_PATH
-        Write-Host "PATH-- " $PATH 
-        $Env:Path
-        haxe -version
-        pwd
-        neko -version
-        pwd
-        Write-Host "11-----------------------------------"
-        d:\haxe\haxelib config
-        Write-Host "11-----------------------------------"
-        dir d:\haxe
-        d:\haxe\haxelib install js.html --always
+        haxelib install js.hxml --always
         haxe js.hxml
-        node bin/js/main.js

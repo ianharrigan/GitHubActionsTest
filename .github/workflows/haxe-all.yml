@@ -1,4 +1,4 @@
-name: Haxe (all versions, all platforms)
+name: Haxe (all versions, all platforms, all targets)
 
 on: [push]
 
@@ -11,6 +11,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         haxe-version: [3.4.4, 4.0.3]
+        hxml: [js.hxml, cpp.hxml]
 
     steps:
     - uses: actions/checkout@v1
@@ -18,12 +19,17 @@ jobs:
       with:
         haxe-version: ${{ matrix.haxe-version }}
 
+    - name: Build app (${{ matrix.hxml }})
+      run: |
+        haxelib install ${{ matrix.hxml }} --always
+        haxe ${{ matrix.hxml }}
+
 #    - name: Build app (js)
 #      run: |
 #        haxelib install js.hxml --always
 #        haxe js.hxml
 
-    - name: Build app (cpp)
-      run: |
-        haxelib install cpp.hxml --always
-        haxe cpp.hxml
+#    - name: Build app (cpp)
+#      run: |
+#        haxelib install cpp.hxml --always
+#        haxe cpp.hxml

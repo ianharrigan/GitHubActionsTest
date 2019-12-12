@@ -15,28 +15,21 @@ jobs:
         sudo add-apt-repository ppa:haxe/snapshots -y
         sudo apt-get update
         sudo apt install neko -y
+        echo neko version:
+        neko -version
 
     - name: Install haxe
       run: |
         wget https://github.com/HaxeFoundation/haxe/releases/download/4.0.3/haxe-4.0.3-linux64.tar.gz
         mkdir ~/haxe
-        echo -------------------------------------------------------
-        ls
         tar -C ~/haxe -zxvf haxe-4.0.3-linux64.tar.gz --strip 1
-        echo -------------------------------------------------------
-        ls
         cd ~/haxe
-        echo -------------------------------------------------------
-        ls
-        cd ..
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
         export PATH=$PATH:~/haxe
         export HAXE_STD_PATH=$PATH:~/haxe/std
         mkdir ~/haxelib && haxelib setup ~/haxelib
-        echo -------------------------------------------------------
-        pwd
-        echo -------------------------------------------------------
+        echo haxe version:
         haxe --version
 
     - name: Run a one-line script

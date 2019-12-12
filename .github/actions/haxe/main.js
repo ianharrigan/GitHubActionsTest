@@ -14,11 +14,11 @@ try {
     child_process.execSync('sudo apt-get update', {stdio: 'inherit'});
     child_process.execSync('sudo apt install neko -y', {stdio: 'inherit'});
 
-    var filename = "haxe-4.0.3-linux64.tar.gz";
-    var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/4.0.3/" + filename;
+    var filename = haxeVersion + "-" + platform +".tar.gz";
+    var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/" + haxeVersion + "/" + filename;
     console.log("Downloading haxe from: " + archiveUrl);
 
-    child_process.execSync('wget https://github.com/HaxeFoundation/haxe/releases/download/4.0.3/haxe-4.0.3-linux64.tar.gz', {stdio: 'inherit'});
+    child_process.execSync('wget ' + archiveUrl, {stdio: 'inherit'});
     fs.mkdirSync("/opt/haxe");
     child_process.execSync('tar -C /opt/haxe -zxvf ' + filename + ' --strip 1', {stdio: 'inherit'});
     child_process.execSync("chmod 777 /opt/haxe/haxe", {stdio: 'inherit'});

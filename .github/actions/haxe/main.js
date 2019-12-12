@@ -22,19 +22,27 @@ try {
         haxelibLocation = "/opt/haxe/haxelibs";
     } else if (platform == "osx") {
         child_process.execSync('brew install neko --HEAD', {stdio: 'inherit'});
+    } else if (platform == "win64") {
+        installLocation = "C:\\haxe";
+        haxelibLocation = "C:\\haxe\\haxelibs";
     }
 
     var filename = "haxe-" + haxeVersion + "-" + platform + ".tar.gz";
     var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/" + haxeVersion + "/" + filename;
-    console.log("Downloading haxe from: " + archiveUrl);
 
-    child_process.execSync('wget ' + archiveUrl, {stdio: 'inherit'});
-    fs.mkdirSync(installLocation);
-    child_process.execSync('tar -C ' + installLocation + ' -zxvf ' + filename + ' --strip 1', {stdio: 'inherit'});
-    child_process.execSync("chmod 777 " + installLocation + "/haxe", {stdio: 'inherit'});
-    child_process.execSync("chmod 777 " + installLocation + "/haxelib", {stdio: 'inherit'});
-    fs.mkdirSync(haxelibLocation);
-    child_process.execSync(installLocation + "/haxelib setup " + haxelibLocation, {stdio: 'inherit'});
+    if (platform == "linux64" || platform == "osx") {
+        console.log("Downloading haxe from: " + archiveUrl);
+
+        child_process.execSync('wget ' + archiveUrl, {stdio: 'inherit'});
+        fs.mkdirSync(installLocation);
+        child_process.execSync('tar -C ' + installLocation + ' -zxvf ' + filename + ' --strip 1', {stdio: 'inherit'});
+        child_process.execSync("chmod 777 " + installLocation + "/haxe", {stdio: 'inherit'});
+        child_process.execSync("chmod 777 " + installLocation + "/haxelib", {stdio: 'inherit'});
+        fs.mkdirSync(haxelibLocation);
+        child_process.execSync(installLocation + "/haxelib setup " + haxelibLocation, {stdio: 'inherit'});
+    } else if (platform == "win64") {
+        child_process.execSync('powershell ./download-file-windows.ps1 -url ' + url + ' -output ' + filename, {stdio: 'inherit'});
+    }
 
     child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});
     child_process.execSync("echo ::set-env name=HAXE_STD_PATH::" + installLocation + "/std", {stdio: 'inherit'});

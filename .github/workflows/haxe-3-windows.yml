@@ -1,0 +1,20 @@
+name: Haxe 3 (Linux)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./.github/actions/haxe
+      with:
+        platform: win64
+        haxe-version: 3.4.4
+
+    - name: Build app
+      run: |
+        haxelib install js.hxml
+        haxe js.hxml

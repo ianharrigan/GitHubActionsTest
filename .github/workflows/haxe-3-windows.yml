@@ -21,6 +21,7 @@ jobs:
         echo $HAXE_STD_PATH
         Write-Host "PATH-- " $PATH 
         $Env:Path
+        haxe --version
         dir d:\haxe
         d:\haxe\haxelib install js.html --always
         haxe js.hxml

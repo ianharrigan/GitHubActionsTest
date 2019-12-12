@@ -4,7 +4,7 @@ on: [push]
 
 env:
   #PATH: $($PATH:~/haxe)
-  HAXE_STD_PATH: ~/haxe/std
+  #HAXE_STD_PATH: ~/haxe/std
 
 jobs:
   build:
@@ -31,6 +31,7 @@ jobs:
         chmod 777 ~/haxe/haxe
         chmod 777 ~/haxe/haxelib
         echo "::add-path::~/haxe"
+        echo "::set-env HAXE_STD_PATH=HAXE_STD_PATH::~/haxe/std"
         mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
         echo haxe version:
         ~/haxe/haxe --version

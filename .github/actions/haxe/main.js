@@ -56,13 +56,14 @@ try {
         var nekoPath = __dirname + "\\neko-2.3.0-win64";
         child_process.execSync("echo ::add-path::" + nekoPath, {stdio: 'inherit'});
         child_process.execSync("echo ::set-env name=NEKO_INSTPATH::" + nekoPath, {stdio: 'inherit'});
-        process.env['NEKO_INSTPATH'] = nekoPath;
+        //process.env['NEKO_INSTPATH'] = nekoPath;
 
-        child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
-        child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
+        //child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
+        //child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
     }
-
+    
     child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});
+    child_process.execSync("echo ::set-env name=HAXELIB_PATH::" + haxelibLocation, {stdio: 'inherit'});
     child_process.execSync("echo ::set-env name=HAXEPATH::" + installLocation, {stdio: 'inherit'});
     child_process.execSync("echo ::set-env name=HAXE_STD_PATH::" + installLocation + "/std", {stdio: 'inherit'});
 } catch (error) {

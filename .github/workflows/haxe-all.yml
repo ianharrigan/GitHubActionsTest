@@ -18,7 +18,7 @@ jobs:
       with:
         haxe-version: ${{ matrix.haxe-version }}
 
-    - name: Build app
-      run: |
-        haxelib install js.hxml --always
-        haxe js.hxml
+#    - name: Build app (js)
+#      run: |
+#        haxelib install js.hxml --always
+#        haxe js.hxml

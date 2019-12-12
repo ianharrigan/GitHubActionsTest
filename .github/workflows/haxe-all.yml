@@ -1,0 +1,25 @@
+name: Haxe (all versions, all platforms)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        platform: [linux64, osx, win64]
+        haxe-version: [3.4.4, 4.0.3]
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ianharrigan/GitHubActionsTest/.github/actions/haxe@master
+      with:
+        platform: ${{ matrix.platform }}
+        haxe-version: ${{ matrix.haxe-version }}
+
+    - name: Build app
+      run: |
+        haxelib install js.hxml --always
+        haxe js.hxml

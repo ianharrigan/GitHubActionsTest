@@ -5,5 +5,6 @@ package;
 class Main {
     public static function main() {
         //"".isEmpty();
+        trace("bob");
     }
 }

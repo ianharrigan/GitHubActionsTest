@@ -60,6 +60,8 @@ try {
 
         //child_process.execSync("dir " + installLocation, {stdio: 'inherit'});
         //child_process.execSync(installLocation + "\\haxelib setup " + haxelibLocation, {stdio: 'inherit'});
+//        child_process.execSync("echo ::set-env name=HAXEPATH::" + installLocation, {stdio: 'inherit'});
+console.log("---------------------------------------> " + process.env["PATH"]);
     }
     
     child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});

@@ -1,4 +1,4 @@
-name: Test Haxe 3
+name: Build Haxe 4
 
 on: [push]
 

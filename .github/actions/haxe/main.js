@@ -14,7 +14,7 @@ try {
     child_process.execSync('sudo apt-get update', {stdio: 'inherit'});
     child_process.execSync('sudo apt install neko -y', {stdio: 'inherit'});
 
-    var filename = haxeVersion + "-" + platform +".tar.gz";
+    var filename = "haxe-" + haxeVersion + "-" + platform + ".tar.gz";
     var archiveUrl = "http://github.com/HaxeFoundation/haxe/releases/download/" + haxeVersion + "/" + filename;
     console.log("Downloading haxe from: " + archiveUrl);
 

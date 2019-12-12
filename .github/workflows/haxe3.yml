@@ -2,9 +2,9 @@ name: Test Haxe 3
 
 on: [push]
 
-env:
-  PATH: $(echo "::add-path::~/haxe")
-  #HAXE_STD_PATH: ~/haxe/std
+#env:
+  #PATH: $(echo "::add-path::~/haxe")
+  HAXE_STD_PATH: ~/haxe/std
 
 jobs:
   build:
@@ -32,11 +32,13 @@ jobs:
         chmod 777 ~/haxe/haxelib
         #echo "::add-path::~/haxe"
         #echo "::set-env name=HAXE_STD_PATH::~/haxe/std"
+        export PATH=$PATH:~/haxe
         mkdir ~/haxelib && ~/haxe/haxelib setup ~/haxelib
         echo haxe version:
         ~/haxe/haxe --version
 
     - name: Build app
       run: |
+        export PATH=$PATH:~/haxe
         haxe --version
         haxe js.hxml

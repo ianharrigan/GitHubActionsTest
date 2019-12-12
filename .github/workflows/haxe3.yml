@@ -2,7 +2,7 @@ name: Test Haxe 3
 
 on: [push]
 
-#env:
+env:
   #PATH: $(echo "::add-path::~/haxe")
   HAXE_STD_PATH: ~/haxe/std
 

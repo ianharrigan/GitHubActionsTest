@@ -67,17 +67,25 @@ try {
         if (haxeVersion.startsWith(3)) {
             nekoPath = __dirname + "\\neko-2.3.0-win";
         }
-        child_process.execSync("echo ::add-path::" + nekoPath, {stdio: 'inherit'});
-        child_process.execSync("echo ::set-env name=NEKO_INSTPATH::" + nekoPath, {stdio: 'inherit'});
+        //child_process.execSync("echo ::add-path::" + nekoPath, {stdio: 'inherit'});
+        core.addPath(nekoPath);
+        //child_process.execSync("echo ::set-env name=NEKO_INSTPATH::" + nekoPath, {stdio: 'inherit'});
+        core.exportVariable("NEKO_INSTPATH", nekoPath);
         process.env['NEKO_INSTPATH'] = nekoPath;
 
         fs.writeFileSync(process.env["USERPROFILE"] + "\\.haxelib", haxelibLocation);
     }
     
-    child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});
+    //child_process.execSync("echo ::add-path::" + installLocation, {stdio: 'inherit'});
+    core.addPath(installLocation);
+    /*
     child_process.execSync("echo ::set-env name=HAXELIB_PATH::" + haxelibLocation, {stdio: 'inherit'});
     child_process.execSync("echo ::set-env name=HAXEPATH::" + installLocation, {stdio: 'inherit'});
     child_process.execSync("echo ::set-env name=HAXE_STD_PATH::" + installLocation + "/std", {stdio: 'inherit'});
+    */
+   core.exportVariable("HAXELIB_PATH", haxelibLocation);
+   core.exportVariable("HAXEPATH", installLocation);
+   core.exportVariable("HAXE_STD_PATH", installLocation + "/std");
 } catch (error) {
     core.setFailed(error.message);
 }
